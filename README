@@ -1,0 +1,12 @@
+The goal of this project is to simulate regular sound change in a nice way.
+The core of this is a regular expression engine that works on sounds
+(segments) modeled as a set of distinctive features. This is unlike lga
+(q.v. here on github), which worked on text. The regular expressions
+(legex) are matched, then substitutions are applied to the matches.
+
+A language that describes language change in a tree like fashion will be the
+next step.
+
+It's all still rather early. Legexes and substitutions are basically working
+already but they only operate on segments. In the future suprasegmental
+features should be supported as well.
