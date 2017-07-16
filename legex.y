@@ -39,6 +39,7 @@ Node *result;
 %pure-parser
 %lex-param {void *scanner}
 %parse-param {void *scanner}
+%define api.prefix {lx_}
 
 %union {
 	Node *node;
@@ -47,7 +48,7 @@ Node *result;
 %type <node> legex atom qatom conc qconc grp expr
 %{
 int yylex(YYSTYPE *yylval, void *scanner);
-void yyerror(char *s, void *scanner);
+void yyerror(void *scanner, char *s);
 %}
 %%
 legex:	  expr { result = $1; }
@@ -100,7 +101,7 @@ parseerror(Scanner *scn, char *s, ...)
 }
 
 void
-yyerror(char *s, void *scanner)
+yyerror(void *scanner, char *s)
 {
 	parseerror((Scanner*)scanner, s);
 }

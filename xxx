@@ -1,0 +1,28 @@
+def quux "asdf" (
+	xyz 'ab';
+	foo;
+	bar;
+)
+
+def qwer (
+	if(! idg ar gr) (
+		yyyy;
+		zzzz;
+	) else (
+		bbbb;
+		aaaa;
+	)
+	eee "abc", { +cons -syll };
+	eee "a", 'bc';
+	eee "a", 'bc' & { +cons -syll };
+	def foobar "uuu" (
+		qwer;
+		asdf;
+	)
+	aaa foo, "xyz";
+	bbb idg;
+	"xxx" (
+		eee;
+		rrr;
+	)
+)

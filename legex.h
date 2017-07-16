@@ -181,3 +181,38 @@ void sxfree(Subst *subst);
 void substitute(Segment *out, Segment *in, int *submatches, int *index, Subst *subst);
 
 int runtests(void);
+
+
+
+/*
+ * Legex script
+ */
+
+typedef struct Language Language;
+
+struct Language
+{
+	char *name;
+	Language *parent;
+	Language *child;
+	Language *next;	// next child
+};
+
+Language *makelang(char *name);
+void langsetparent(Language *par, Language *child);
+void printlangtree(Language *root, int indent);
+Language *readlangtree(FILE *f, Language *parent);
+
+typedef struct Symbol Symbol;
+struct Symbol;
+
+typedef struct Script Script;
+struct Script
+{
+	Language *langtree;
+	Symbol *symlist;
+};
+
+Script *scriptparse(FILE *f, Language *tree);
+void printdefs(Script *sc);
+void *legscrcompile(Script *sc, char *from, char *to);
